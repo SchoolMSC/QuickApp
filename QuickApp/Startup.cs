@@ -25,6 +25,8 @@ using QuickApp.Helpers;
 using System;
 using System.Collections.Generic;
 using AppPermissions = DAL.Core.ApplicationPermissions;
+using DAL.Repositories.Interfaces;
+using DAL.Repositories;
 
 namespace QuickApp
 {
@@ -51,6 +53,8 @@ namespace QuickApp
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             // Configure Identity options and password complexity here
             services.Configure<IdentityOptions>(options =>

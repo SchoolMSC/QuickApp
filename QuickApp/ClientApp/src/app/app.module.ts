@@ -48,6 +48,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { UrunComponent } from './components/urun/urun.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -62,7 +63,11 @@ import { UserPreferencesComponent } from './components/controls/user-preferences
 import { UsersManagementComponent } from './components/controls/users-management.component';
 import { RolesManagementComponent } from './components/controls/roles-management.component';
 import { RoleEditorComponent } from './components/controls/role-editor.component';
+import { UrunDetailComponent } from './components/urun/urun-detail/urun-detail.component';
+import { UrunAddComponent } from './components/urun/urun-add/urun-add.component';
+import { UrunUpdateComponent } from './components/urun/urun-update/urun-update.component';
 
+import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -86,7 +91,8 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -108,7 +114,12 @@ import { RoleEditorComponent } from './components/controls/role-editor.component
     AutofocusDirective,
     BootstrapTabDirective,
     BootstrapToggleDirective,
-    GroupByPipe
+    GroupByPipe,
+    UrunComponent,
+    UrunDetailComponent,
+    UrunAddComponent,
+    UrunUpdateComponent
+    
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },

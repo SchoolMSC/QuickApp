@@ -14,14 +14,40 @@ using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductRepository: IProductRepository
     {
-        public ProductRepository(DbContext context) : base(context)
-        { }
+        private ApplicationDbContext _context;
 
+        public ProductRepository (ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
+        public void Add<T>(T entity) where T : class
+        {
+            _context.Add(entity);
+        }
 
+        public void Delete<T>(T entity) where T : class
+        {
+            _context.Remove(entity);
+        }
 
-        private ApplicationDbContext _appContext => (ApplicationDbContext)_context;
+        public Product GetProductById(int productId)
+        {
+            var product = _context.Products.FirstOrDefault(x => x.Id == productId);
+            return product;
+        }
+
+        public List<Product> GetProducts()
+        {
+            var products = _context.Products.ToList();
+            return products;
+        }
+
+        public bool SaveAll()
+        {
+            return _context.SaveChanges() > 0;
+        }
     }
 }

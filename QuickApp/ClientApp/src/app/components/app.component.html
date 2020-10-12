@@ -10,7 +10,6 @@
       <button type="button" class="app-component navbar-toggler" data-toggle="collapse" data-target=".menuItemsContainer.app-component">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div *ngIf="isUserLoggedIn" class="app-component collapse navbar-collapse menuItemsContainer">
         <ul class="app-component nav nav-pills flex-column flex-lg-row mr-auto">
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -24,6 +23,12 @@
           </li>
           <li class="nav-item" routerLinkActive="active" *ngIf="canViewOrders">
             <a class="nav-link" routerLink="/orders">{{'mainMenu.Orders' | translate}}</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="canViewOrders">
+            <a class="nav-link" routerLink="/urun">{{'Ürünler' | translate}}</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="canViewOrders">
+            <a class="nav-link" routerLink="/urunadd">{{'Ürün Ekle' | translate}}</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/about">{{'mainMenu.About' | translate}}</a>

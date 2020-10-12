@@ -1,0 +1,37 @@
+<main role="main">
+  <div class="container">
+    <div class="row">
+      <form [formGroup]='urunAddForm' (ngSubmit)="add()">
+        <h2 class="mt-3 pt-3">Yeni Ürün Ekle</h2>
+        <div class="form-group">
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="Ürünün Adı" autofocus>
+          <span class="help-block" *ngIf="urunAddForm.get('name').hasError('required') && urunAddForm.get('name').touched">
+            Ürünün adının girilmesi zorunludur.
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="text" id="description" formControlName="description" class="form-control" placeholder="Ürünün Açıklaması" autofocus>
+          <span class="help-block" *ngIf="urunAddForm.get('description').hasError('required') && urunAddForm.get('description').touched">
+            Ürünün açıklaması girilmesi zorunludur.
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="number" id="price" formControlName="price" class="form-control" placeholder="Ürünün Fiyatı" autofocus>
+          <span class="help-block" *ngIf="urunAddForm.get('price').hasError('required') && urunAddForm.get('price').touched">
+            Ürünün fiyatının girilmesi zorunludur.
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="text" id="image" formControlName="image" class="form-control" placeholder="Ürünün Resimi" autofocus>
+          <span class="help-block" *ngIf="urunAddForm.get('image').hasError('required') && urunAddForm.get('image').touched">
+            Ürünün resminin girilmesi zorunludur.
+          </span>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary" [disabled]="!urunAddForm.valid">Ekle</button>
+      <h6>{{urunAddForm.value | json}}</h6>
+      <h6>{{urunAddForm.status | json}}</h6>
+      </form>
+      
+    </div>
+  </div>
+</main>

@@ -5,6 +5,7 @@
 
 using AutoMapper;
 using DAL.Core;
+using DAL.Dtos;
 using DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -59,6 +60,9 @@ namespace QuickApp.ViewModels
                 .ReverseMap();
 
             CreateMap<Order, OrderViewModel>()
+                .ReverseMap();
+
+            CreateMap<Urun, UrunForListDto>()
                 .ReverseMap();
         }
     }

@@ -11,12 +11,16 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { UrunComponent } from './components/urun/urun.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { Utilities } from './services/utilities';
+import { UrunDetailComponent } from './components/urun/urun-detail/urun-detail.component';
+import { UrunAddComponent } from './components/urun/urun-add/urun-add.component';
+import { UrunUpdateComponent } from './components/urun/urun-update/urun-update.component';
 
 
 
@@ -48,6 +52,10 @@ const routes: Routes = [
     { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard], data: { title: 'Customers' } },
     { path: 'products', component: ProductsComponent, canActivate: [AuthGuard], data: { title: 'Products' } },
     { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard], data: { title: 'Orders' } },
+    { path: 'urun', component: UrunComponent, canActivate: [AuthGuard], data: { title: 'Urun' } },
+    { path: 'urun/:urunId', component: UrunDetailComponent, canActivate: [AuthGuard], data: { title: 'Urun Detaylari' } },
+    { path: 'urunadd', component: UrunAddComponent, canActivate: [AuthGuard], data: { title: 'Urun Ekle' } },
+    { path: 'urun/update/:urunId', component: UrunUpdateComponent, canActivate: [AuthGuard], data: { title: 'Urun Güncelle' } },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
     { path: 'about', component: AboutComponent, data: { title: 'About Us' } },
     { path: 'home', redirectTo: '/', pathMatch: 'full' },
